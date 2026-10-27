@@ -11,6 +11,7 @@ COPY . .
 
 # Cria pasta de dados para volume persistente
 RUN mkdir -p /app/data
+VOLUME ["/app/data"]
 
 EXPOSE 3000
 
