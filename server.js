@@ -12,9 +12,11 @@ const whatsappService = require('./services/whatsapp');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const APP_URL = process.env.APP_URL || 'https://membros.dluz.com.br';
 const SESSION_COOKIE = 'dluz_member_session';
 const ADMIN_SECRET = process.env.ADMIN_SECRET || '';
 
+app.enable('trust proxy');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -45,7 +47,7 @@ function setSessionUser(res, userData) {
 
 // Iniciar login com o Google
 app.get('/auth/google', (req, res) => {
-  const redirectUri = `${req.protocol}://${req.get('host')}/auth/callback`;
+  const redirectUri = `${APP_URL}/auth/callback`;
   const url = youtubeService.getGoogleAuthUrl(redirectUri);
   res.redirect(url);
 });
@@ -53,7 +55,7 @@ app.get('/auth/google', (req, res) => {
 // Callback do Google OAuth
 app.get('/auth/callback', async (req, res) => {
   const code = req.query.code;
-  const redirectUri = `${req.protocol}://${req.get('host')}/auth/callback`;
+  const redirectUri = `${APP_URL}/auth/callback`;
 
   if (!code) {
     return res.redirect('/?error=auth_cancelled');
