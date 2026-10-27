@@ -100,11 +100,11 @@ function renderLandingView(container) {
       <!-- Título de Alto Impacto -->
       <div class="space-y-4 max-w-2xl">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-black font-heading tracking-tight text-white leading-tight">
-          Sua Chave PRO <br class="hidden sm:inline" />
+          Softwares & Emuladores <br class="hidden sm:inline" />
           <span class="bg-gradient-to-r from-[#ffd700] via-[#ffe066] to-[#00f0ff] bg-clip-text text-transparent">Sem Esperar no Discord</span>
         </h1>
         <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-          Se você é membro do canal <strong class="text-white font-semibold">Joga DLuz</strong> a partir do <strong class="text-[#ffd700] font-semibold">Nível 3</strong>, faça login com sua conta do YouTube para resgatar sua chave oficial do DLuzMobilador Plus automaticamente.
+          Se você apoia o canal <strong class="text-white font-semibold">Joga DLuz</strong> a partir do <strong class="text-[#ffd700] font-semibold">Nível 3</strong>, faça login com sua conta do YouTube para desbloquear o <strong class="text-white">DLuzMobilador Pro</strong> e o <strong class="text-[#00f0ff]">Emulador Orbix Linux</strong> imediatamente.
         </p>
       </div>
 
@@ -120,31 +120,31 @@ function renderLandingView(container) {
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full pt-8 text-left">
         <div class="glass-panel p-6 rounded-2xl glass-card-hover border border-slate-800">
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4 font-bold">
-            ⚡
+            🎮
           </div>
-          <h3 class="font-heading font-bold text-lg text-white mb-1">Zero Fila & Imediato</h3>
+          <h3 class="font-heading font-bold text-lg text-white mb-1">DLuzMobilador Pro</h3>
           <p class="text-sm text-slate-400 leading-relaxed">
-            Nada de abrir ticket no Discord ou esperar horas por um moderador. A verificação é via API em milissegundos.
+            Windows 120 FPS cravado, sensibilidade 1:1 e zero delay para dominar no competitivo.
           </p>
         </div>
 
         <div class="glass-panel p-6 rounded-2xl glass-card-hover border border-slate-800">
           <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-4 font-bold">
-            👑
+            🐧
           </div>
-          <h3 class="font-heading font-bold text-lg text-white mb-1">Membros Nível 3+</h3>
+          <h3 class="font-heading font-bold text-lg text-white mb-1">Emulador Orbix Linux</h3>
           <p class="text-sm text-slate-400 leading-relaxed">
-            Benefício premium reservado para os apoiadores fiéis que fortalecem o canal continuamente.
+            Arquitetura híbrida nativa no Linux. Zero aceleração de mouse, mapeamento BlueStacks e super leve.
           </p>
         </div>
 
         <div class="glass-panel p-6 rounded-2xl glass-card-hover border border-slate-800">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-4 font-bold">
-            📱
+            ⚡
           </div>
-          <h3 class="font-heading font-bold text-lg text-white mb-1">Envio no WhatsApp</h3>
+          <h3 class="font-heading font-bold text-lg text-white mb-1">Chave Automática</h3>
           <p class="text-sm text-slate-400 leading-relaxed">
-            Além de ver sua chave na tela, receba o serial e os links de download direto no seu WhatsApp oficial.
+            Sem moderador, sem fila e sem Discord. Chave liberada e enviada no seu WhatsApp na hora.
           </p>
         </div>
       </div>
@@ -158,8 +158,10 @@ function renderEligibleMemberView(container) {
   const member = appState.member;
   const license = appState.license;
 
+  const orbixCurlCommand = "curl -fsSL https://membros.dluz.com.br/scripts/orbix-install.sh | bash";
+
   container.innerHTML = `
-    <div class="w-full max-w-3xl flex flex-col space-y-6">
+    <div class="w-full max-w-4xl flex flex-col space-y-6">
       
       <!-- Card do Membro VIP -->
       <div class="glass-panel p-6 rounded-3xl border border-[#ffd700]/30 shadow-xl shadow-[#ffd700]/5 flex flex-col sm:flex-row items-center sm:justify-between gap-4">
@@ -171,21 +173,25 @@ function renderEligibleMemberView(container) {
               <span class="bg-emerald-500/20 text-emerald-300 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-emerald-500/40 uppercase">Ativo</span>
             </div>
             <p class="text-sm text-[#ffd700] font-semibold mt-0.5">👑 ${member.tier_name || 'Membro Nível 3'}</p>
-            <p class="text-xs text-slate-400 mt-1">Apoiador do canal • Acesso Total Liberado</p>
+            <p class="text-xs text-slate-400 mt-1">Apoiador do canal • Todos os Softwares Liberados</p>
           </div>
         </div>
       </div>
 
-      <!-- Box de Chave de Licença -->
+      <!-- Box de Chave de Licença Unificada -->
       <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 relative overflow-hidden">
         <div class="absolute -right-16 -top-16 w-48 h-48 bg-[#ffd700]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="flex flex-col space-y-4">
           <div>
-            <h3 class="text-xs uppercase tracking-wider font-bold text-slate-400">Benefício Exclusivo</h3>
-            <h2 class="text-xl sm:text-2xl font-black font-heading text-white">Chave Oficial do DLuzMobilador Plus Pro</h2>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs uppercase tracking-wider font-bold text-[#ffd700]">Benefício VIP Exclusivo</span>
+              <span class="text-slate-600">•</span>
+              <span class="text-xs text-slate-400">Válida para Windows & Linux</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1">Chave Oficial Pro — Clube de Membros</h2>
             <p class="text-xs sm:text-sm text-slate-400 mt-1">
-              Sua licença permanece válida <strong class="text-[#ffd700]">enquanto sua assinatura de membro estiver ativa</strong> no canal.
+              Ativa o <strong class="text-white">DLuzMobilador Pro</strong> e o <strong class="text-[#00f0ff]">Emulador Orbix Linux</strong> enquanto sua assinatura estiver ativa no canal.
             </p>
           </div>
 
@@ -196,38 +202,97 @@ function renderEligibleMemberView(container) {
         </div>
       </div>
 
-      <!-- Links Oficiais de Download (v2.5) -->
-      <div class="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col space-y-4">
-        <div class="flex items-center justify-between">
-          <h3 class="font-heading font-bold text-lg text-white flex items-center space-x-2">
-            <span>📦 Downloads Oficiais v2.5</span>
-            <span class="bg-cyan-500/20 text-cyan-300 text-xs px-2 py-0.5 rounded-full border border-cyan-500/40">Zero Delay 120 FPS</span>
-          </h3>
+      <!-- Grade dos 2 Softwares Liberados -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+
+        <!-- Produto 1: DLuz Mobilador Pro (Windows) -->
+        <div class="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                🎮
+              </span>
+              <span class="bg-amber-500/20 text-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-amber-500/40 uppercase">
+                Windows 10 / 11
+              </span>
+            </div>
+
+            <div>
+              <h3 class="font-heading font-black text-xl text-white">DLuzMobilador Pro</h3>
+              <p class="text-xs text-slate-400 mt-1">
+                Zero Delay 120 FPS, mapeamento BlueStacks e controle absoluto via USB de alta velocidade.
+              </p>
+            </div>
+          </div>
+
+          <!-- Botões Windows -->
+          <div class="space-y-2 pt-2">
+            <a href="${appState.downloads.zip}" target="_blank" class="w-full flex items-center justify-between p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition group">
+              <div class="flex items-center space-x-3">
+                <span class="text-lg">📦</span>
+                <div class="text-left">
+                  <p class="text-xs font-bold text-white group-hover:text-[#ffd700] transition">Versão Portátil (.zip)</p>
+                  <p class="text-[10px] text-slate-400">Zero instalação • Extrair e jogar</p>
+                </div>
+              </div>
+              <span class="text-slate-500 group-hover:text-white transition text-xs">Baixar ⬇️</span>
+            </a>
+
+            <a href="${appState.downloads.exe}" target="_blank" class="w-full flex items-center justify-between p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition group">
+              <div class="flex items-center space-x-3">
+                <span class="text-lg">⚙️</span>
+                <div class="text-left">
+                  <p class="text-xs font-bold text-white group-hover:text-[#ffd700] transition">Instalador Oficial (.exe)</p>
+                  <p class="text-[10px] text-slate-400">Instalação assistida no Windows</p>
+                </div>
+              </div>
+              <span class="text-slate-500 group-hover:text-white transition text-xs">Baixar ⬇️</span>
+            </a>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="${appState.downloads.zip}" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-slate-700 transition group">
-            <div class="flex items-center space-x-3">
-              <span class="text-2xl">📦</span>
-              <div class="text-left">
-                <p class="text-sm font-bold text-white group-hover:text-[#ffd700] transition">Versão Portátil (.zip)</p>
-                <p class="text-xs text-slate-400">Zero instalação • Extrair e jogar</p>
-              </div>
+        <!-- Produto 2: Emulador Orbix (Linux) -->
+        <div class="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl">
+                🐧
+              </span>
+              <span class="bg-cyan-500/20 text-cyan-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-cyan-500/40 uppercase">
+                Linux Nativo
+              </span>
             </div>
-            <span class="text-slate-400 group-hover:text-white transition">⬇️</span>
-          </a>
 
-          <a href="${appState.downloads.exe}" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-slate-700 transition group">
-            <div class="flex items-center space-x-3">
-              <span class="text-2xl">⚙️</span>
-              <div class="text-left">
-                <p class="text-sm font-bold text-white group-hover:text-[#ffd700] transition">Instalador Oficial (.exe)</p>
-                <p class="text-xs text-slate-400">Instalação assistida no Windows</p>
+            <div>
+              <h3 class="font-heading font-black text-xl text-white">Emulador Orbix Linux</h3>
+              <p class="text-xs text-slate-400 mt-1">
+                Arquitetura híbrida para Ubuntu, Debian, Pop!_OS, Arch e Fedora. Sensibilidade 1:1 e zero aceleração.
+              </p>
+            </div>
+          </div>
+
+          <!-- Comando de Instalação Linux -->
+          <div class="space-y-2 pt-2">
+            <div class="bg-black/60 border border-slate-800 rounded-xl p-3 text-left">
+              <p class="text-[10px] uppercase font-bold text-slate-400 mb-1.5 flex items-center justify-between">
+                <span>Comando de Instalação (Terminal):</span>
+                <span class="text-cyan-400 text-[10px]">1-Clique</span>
+              </p>
+              <div class="flex items-center justify-between bg-slate-950 p-2 rounded-lg border border-slate-900 font-mono text-xs text-cyan-300 overflow-x-auto select-all">
+                <code>${orbixCurlCommand}</code>
               </div>
             </div>
-            <span class="text-slate-400 group-hover:text-white transition">⬇️</span>
-          </a>
+
+            <button 
+              onclick="copyCommand('${orbixCurlCommand}')" 
+              id="btn-copy-command"
+              class="w-full flex items-center justify-center space-x-2 py-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/40 transition text-xs font-bold"
+            >
+              <span>📋 Copiar Comando do Terminal</span>
+            </button>
+          </div>
         </div>
+
       </div>
 
       <!-- Card Enviar para WhatsApp -->
@@ -237,8 +302,8 @@ function renderEligibleMemberView(container) {
             💬
           </div>
           <div>
-            <h3 class="font-heading font-bold text-base text-white">Receber no WhatsApp</h3>
-            <p class="text-xs text-slate-400">Envie a sua chave e links oficiais para o seu número particular.</p>
+            <h3 class="font-heading font-bold text-base text-white">Receber Chave & Links no WhatsApp</h3>
+            <p class="text-xs text-slate-400">Receba a chave oficial, os links do Windows e os comandos do Linux direto no seu celular.</p>
           </div>
         </div>
 
@@ -246,7 +311,7 @@ function renderEligibleMemberView(container) {
           <input 
             type="tel" 
             id="whatsapp-phone" 
-            placeholder="Seu WhatsApp (ex: 11999998888)" 
+            placeholder="Seu WhatsApp com DDD (ex: 11999998888)" 
             class="flex-1 bg-slate-900 border border-slate-700 focus:border-[#ffd700] focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 transition"
             required
           />
@@ -316,7 +381,7 @@ function renderNeedsUpgradeView(container) {
           </div>
           <h2 class="font-heading font-black text-2xl sm:text-3xl text-white">Upgrade Necessário para Nível 3</h2>
           <p class="text-sm sm:text-base text-slate-300 max-w-lg leading-relaxed">
-            Muito obrigado por apoiar o canal! A liberação automática de chaves do <strong class="text-white">DLuzMobilador Plus Pro</strong> é um benefício exclusivo para membros a partir do <strong class="text-[#ffd700]">Nível 3 (Ouro / Elite)</strong>.
+            Muito obrigado por apoiar o canal! A liberação das chaves do <strong class="text-white">DLuzMobilador Pro</strong> e do <strong class="text-[#00f0ff]">Emulador Orbix Linux</strong> é exclusiva para membros a partir do <strong class="text-[#ffd700]">Nível 3 (Ouro / Elite)</strong>.
           </p>
         </div>
 
@@ -416,12 +481,26 @@ async function handleClaimKey() {
 // Ação: Copiar Chave
 function copyKey(key) {
   navigator.clipboard.writeText(key).then(() => {
-    showToast('Chave copiada para a área de transferência!', 'success');
+    showToast('Chave copiada com sucesso!', 'success');
     const btn = document.getElementById('btn-copy-key');
     if (btn) {
       btn.innerHTML = `<span>✅ Copiado!</span>`;
       setTimeout(() => {
         btn.innerHTML = `<span>📋 Copiar Chave</span>`;
+      }, 2000);
+    }
+  });
+}
+
+// Ação: Copiar Comando Linux
+function copyCommand(cmd) {
+  navigator.clipboard.writeText(cmd).then(() => {
+    showToast('Comando de instalação copiado!', 'success');
+    const btn = document.getElementById('btn-copy-command');
+    if (btn) {
+      btn.innerHTML = `<span>✅ Comando Copiado!</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<span>📋 Copiar Comando do Terminal</span>`;
       }, 2000);
     }
   });
@@ -451,7 +530,7 @@ async function handleSendWhatsApp(e) {
       throw new Error(data.error || 'Erro ao enviar mensagem.');
     }
 
-    showToast(data.message || 'Chave enviada no WhatsApp com sucesso!', 'success');
+    showToast(data.message || 'Chave e links enviados no WhatsApp com sucesso!', 'success');
     phoneInput.value = '';
   } catch (error) {
     showToast(error.message, 'error');

@@ -62,29 +62,32 @@ async function sendKeyToMemberWhatsApp(phone, memberName, licenseKey, tierName =
 
   const message = `🔥 *FALA, ${firstName.toUpperCase()}! BELEZA?*
 
-Muito obrigado por apoiar o canal como *Membro VIP (${tierName})* no YouTube! Como prometido, aqui está o seu benefício exclusivo:
+Muito obrigado por apoiar o canal como *Membro VIP (${tierName})* no YouTube! Seus benefícios e softwares exclusivos estão liberados:
 
-🔑 *SUA CHAVE PRO OFICIAL:*
+🔑 *SUA CHAVE PRO OFICIAL (UNIFICADA):*
 \`\`\`${licenseKey}\`\`\`
 
 *(Válida enquanto você mantiver sua assinatura ativa no canal!)*
 
 ---
-🚀 *LINKS DE DOWNLOAD OFICIAL (VERSÃO 2.5):*
-
-📦 *Versão Portátil (.zip — Zero Instalação):*
+🎮 *1. DLUZMOBILADOR PRO (WINDOWS):*
+📦 *Portátil (.zip — Zero Instalação):*
 ${DOWNLOAD_ZIP_URL}
 
 ⚙️ *Instalador Oficial (.exe):*
 ${DOWNLOAD_EXE_URL}
 
 ---
-💡 *COMO ATIVAR NO DLUZMOBILADOR PLUS:*
-1. Baixe e abra o aplicativo.
-2. Na tela de ativação, cole a sua chave acima.
-3. Clique em *Ativar* e pronto! Aproveite a taxa de 120 FPS e Zero Delay!
+🐧 *2. EMULADOR ORBIX (LINUX EDITION):*
+⚡ *Instalação Rápida no Terminal Linux (1 Comando):*
+\`\`\`curl -fsSL https://membros.dluz.com.br/scripts/orbix-install.sh | bash\`\`\`
+*(Compatível com Ubuntu, Debian, Pop!_OS, Arch e Fedora)*
 
-Precisando de qualquer suporte, conte com a gente. Tmj e bom jogo! 🎮⚡`;
+---
+💡 *COMO ATIVAR:*
+Abra o software, cole a sua chave acima e clique em *Ativar*. Aproveite a taxa de 120 FPS cravada e Zero Delay!
+
+Precisando de suporte, estamos por aqui. Tmj e bom jogo! 🎮⚡`;
 
   if (process.env.DEMO_MODE === 'true') {
     console.log(`[WhatsAppService] MODO DEMO - Mensagem simulada para ${formattedPhone}:\n${message}`);
