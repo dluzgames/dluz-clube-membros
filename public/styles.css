@@ -1,0 +1,51 @@
+/* Fonte Outfit para títulos de impacto e Inter para corpo */
+.font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Glassmorphism customizado */
+.glass-panel {
+  background: rgba(19, 22, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(255, 215, 0, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(255, 215, 0, 0.12);
+}
+
+/* Efeito Glow Dourado e Neon */
+.glow-gold {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+}
+
+/* Animação de pulso suave */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 3s infinite ease-in-out;
+}
+
+/* Efeito de revelar código */
+.code-reveal {
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}

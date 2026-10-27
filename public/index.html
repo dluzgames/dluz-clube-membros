@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DLuz Clube de Membros — Resgate de Chaves & Benefícios</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#0a0b0e] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-[#ffd700] selection:text-black">
+
+  <!-- Background Glow FX -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-gradient-to-b from-[#ffd700]/15 via-[#00f0ff]/10 to-transparent blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-0 right-10 w-[500px] h-[350px] bg-[#00f0ff]/10 blur-[140px] rounded-full"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="relative z-10 border-b border-slate-800/80 bg-[#0d0f14]/80 backdrop-blur-md sticky top-0">
+    <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#ffd700] to-[#ffaa00] flex items-center justify-center shadow-lg shadow-[#ffd700]/20 font-black text-black text-xl font-heading">
+          D
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-extrabold text-xl tracking-tight font-heading text-white">DLUZ</span>
+            <span class="bg-[#ffd700]/20 text-[#ffd700] text-xs px-2 py-0.5 rounded-full font-bold border border-[#ffd700]/40 uppercase tracking-wider">Membros VIP</span>
+          </div>
+          <p class="text-xs text-slate-400">Canal Oficial Joga DLuz</p>
+        </div>
+      </div>
+
+      <!-- User Nav State -->
+      <div id="nav-user-container" class="flex items-center space-x-4">
+        <!-- Renderizado dinamicamente -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative z-10 flex-1 max-w-5xl w-full mx-auto px-4 py-8 md:py-12 flex flex-col items-center">
+    
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-24 right-5 z-50 flex flex-col space-y-3 pointer-events-none"></div>
+
+    <!-- Container Principal Dinâmico -->
+    <div id="app-content" class="w-full flex flex-col items-center">
+      <!-- Loading State Inicial -->
+      <div class="flex flex-col items-center justify-center py-20 space-y-4">
+        <div class="w-12 h-12 border-4 border-slate-700 border-t-[#ffd700] rounded-full animate-spin"></div>
+        <p class="text-sm text-slate-400 animate-pulse">Carregando painel do membro...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Rodapé & Alternador de Demonstração -->
+  <footer class="relative z-10 border-t border-slate-800/80 bg-[#0d0f14] py-8 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>© 2026 DLuz Games — Todos os direitos reservados. Sistema 100% automatizado sem Discord.</p>
+      
+      <!-- Seletor de Teste Rápido (Demo Mode) -->
+      <div class="flex items-center flex-wrap gap-2 justify-center bg-slate-900/90 border border-slate-800 px-3 py-1.5 rounded-xl">
+        <span class="text-slate-400 font-medium mr-1">🧪 Testar Cenários:</span>
+        <button onclick="simulateAuth('tier3')" class="px-2 py-1 bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 rounded border border-amber-500/40 transition">
+          👑 Nível 3 (VIP)
+        </button>
+        <button onclick="simulateAuth('tier1')" class="px-2 py-1 bg-blue-500/20 text-blue-300 hover:bg-blue-500/30 rounded border border-blue-500/40 transition">
+          🥉 Nível 1
+        </button>
+        <button onclick="simulateAuth('not_member')" class="px-2 py-1 bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 rounded border border-rose-500/40 transition">
+          ❌ Não-Membro
+        </button>
+        <a href="/auth/logout" class="px-2 py-1 bg-slate-800 text-slate-300 hover:bg-slate-700 rounded border border-slate-700 transition">
+          Deslogar
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
